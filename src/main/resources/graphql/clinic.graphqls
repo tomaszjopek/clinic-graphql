@@ -1,0 +1,25 @@
+type Query {
+    patients: [Patient!]!
+    doctors: [Doctor!]!
+}
+
+interface Person {
+    id: ID!
+    name: String!
+    surname: String!
+    email: String!
+}
+
+type Patient implements Person {
+    id: ID!
+    name: String!
+    surname: String!
+    email: String!
+}
+
+type Doctor implements Person {
+    id: ID!
+    name: String!
+    surname: String!
+    email: String!
+}
