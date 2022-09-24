@@ -12,7 +12,7 @@ public class PageableResult<T> {
   }
 
   public PageInfo<T> getPageInfo() {
-    return new PageInfo<T>(result);
+    return new PageInfo<>(result);
   }
 
   public List<T> getItems() {
