@@ -13,17 +13,16 @@ import pl.itj.dev.bookvisitgraphql.repositories.PatientRepository;
 @Controller
 public class PatientController extends BaseController {
 
-    private final PatientRepository patientRepository;
+  private final PatientRepository patientRepository;
 
-    public PatientController(PatientRepository patientRepository) {
-        this.patientRepository = patientRepository;
-    }
+  public PatientController(PatientRepository patientRepository) {
+    this.patientRepository = patientRepository;
+  }
 
-    @QueryMapping
-    public PageableResult<Patient> patients(@Argument Integer page, @Argument Integer size) {
-        final PageRequest pageRequest = preparePageRequest(page, size);
-        Page<Patient> patientPage = patientRepository.findAll(pageRequest);
-        return new PageableResult<>(patientPage);
-    }
-
+  @QueryMapping
+  public PageableResult<Patient> patients(@Argument Integer page, @Argument Integer size) {
+    final PageRequest pageRequest = preparePageRequest(page, size);
+    Page<Patient> patientPage = patientRepository.findAll(pageRequest);
+    return new PageableResult<>(patientPage);
+  }
 }

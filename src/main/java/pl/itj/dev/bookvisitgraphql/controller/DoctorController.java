@@ -1,5 +1,6 @@
 package pl.itj.dev.bookvisitgraphql.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -11,19 +12,14 @@ import pl.itj.dev.bookvisitgraphql.model.ety.Doctor;
 import pl.itj.dev.bookvisitgraphql.repositories.DoctorRepository;
 
 @Controller
+@AllArgsConstructor
 public class DoctorController extends BaseController {
+  private final DoctorRepository doctorRepository;
 
-    private final DoctorRepository doctorRepository;
-
-    public DoctorController(DoctorRepository doctorRepository) {
-        this.doctorRepository = doctorRepository;
-    }
-
-    @QueryMapping
-    public PageableResult<Doctor> doctors(@Argument Integer page, @Argument Integer size) {
-        final PageRequest pageRequest = preparePageRequest(page, size);
-        Page<Doctor> doctorPage = doctorRepository.findAll(pageRequest);
-        return new PageableResult<>(doctorPage);
-    }
-
+  @QueryMapping
+  public PageableResult<Doctor> doctors(@Argument Integer page, @Argument Integer size) {
+    final PageRequest pageRequest = preparePageRequest(page, size);
+    Page<Doctor> doctorPage = doctorRepository.findAll(pageRequest);
+    return new PageableResult<>(doctorPage);
+  }
 }

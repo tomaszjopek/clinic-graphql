@@ -8,8 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = {"pl.itj.dev.bookvisitgraphql.repositories"})
 public class BookVisitGraphqlApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BookVisitGraphqlApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(BookVisitGraphqlApplication.class, args);
+  }
 }
