@@ -1,5 +1,6 @@
 package pl.itj.dev.bookvisitgraphql.controller;
 
+import javax.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,8 +17,6 @@ import pl.itj.dev.bookvisitgraphql.model.ety.Doctor;
 import pl.itj.dev.bookvisitgraphql.repositories.DoctorRepository;
 import pl.itj.dev.bookvisitgraphql.services.DoctorService;
 
-import javax.validation.Valid;
-
 @Controller
 @AllArgsConstructor
 public class DoctorController extends BaseController {
@@ -33,7 +32,8 @@ public class DoctorController extends BaseController {
 
   @MutationMapping
   public AddDoctorPayload addDoctor(@Argument @Valid AddDoctorInput input) {
-    var createdDoctor = doctorService.addDoctor(input.getName(), input.getSurname(), input.getEmail());
+    var createdDoctor =
+        doctorService.addDoctor(input.getName(), input.getSurname(), input.getEmail());
     return new AddDoctorSuccessPayload(createdDoctor);
   }
 }

@@ -19,7 +19,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity implements Serializable {
   @Id @GeneratedValue private UUID id;
-
+// dsadasd sadasdasdasd
   @LastModifiedDate private LocalDateTime lastUpdated;
 
   @CreatedDate private LocalDateTime createdDate;
