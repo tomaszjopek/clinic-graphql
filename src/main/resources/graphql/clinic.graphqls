@@ -43,3 +43,23 @@ type DoctorSearchResult {
     pageInfo: PageInfo!
     items: [Doctor!]!
 }
+
+type Mutation {
+    addDoctor(input: AddDoctorInput!): AddDoctorSuccessPayload!
+}
+
+input AddDoctorInput {
+    name: String!
+    surname: String!
+    email: String!
+}
+
+type AddDoctorSuccessPayload {
+    doctor: Doctor
+}
+
+type AddDoctorErrorPayload {
+    error: String
+}
+
+union AddDoctorPayload = AddDoctorSuccessPayload | AddDoctorErrorPayload
